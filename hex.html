@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #Cbtn{
+        background-color: black;
+        color:white;
+        font-size: 25px;
+        border-radius: 10px;
+    }
+    #head{
+        font-size: larger;
+    }
+    body{
+        text-align: center;
+        position: absolute;
+        /* border: 1px solid red; */
+        width: 100%;
+        height: 90vh;
+
+    }
+
+    .main{
+        border:5px solid whitesmoke;
+        width: 400px;
+        border-radius: 20px;
+        text-align: center;
+        position: relative;
+        left: 35%;
+        top: 30%;
+        padding: 10px;
+        /* border: 1px solid red; */
+    }
+    #head{
+        text-transform: capitalize;
+    }
+  </style>
+  <body >
+    <div class="nav">
+      <h4>Color Flipper</h4>
+      <a href="color_flipper.html">simple</a>
+      <a href="hex.html">Hex</a>
+    </div>
+    <div class="main">
+      <h2>
+        My HEX Background Color is:
+        <span id="head">White</span>
+      </h2>
+      <button id="Cbtn">Click Me</button>
+    </div>
+  </body>
+</html>
+<script>
+  let hexArr = [0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F"];
+
+  let btns = document.getElementById("Cbtn");
+
+  btns.addEventListener("click", function () {
+      let hexaNum="#"
+    for(let i=0;i<6;i++){
+        hexaNum+=hexArr[getRandom()];
+    }    
+    document.getElementById("head").textContent = hexaNum;
+    document.body.style.backgroundColor = hexaNum;
+    console.log(getRandom())
+  });
+
+  // generate random num
+  function getRandom() {
+    return Math.floor(Math.random() * hexArr.length);
+  }
+</script>
